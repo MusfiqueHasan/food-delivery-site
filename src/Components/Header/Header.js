@@ -1,8 +1,9 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router';
-import { Container, Nav, Navbar, NavDropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import img from '../../images/food.png'
+
 import useAuth from '../../hooks/useAuth';
 const Header = () => {
 
@@ -39,8 +40,8 @@ const Header = () => {
                                     <NavLink to="/restaurant" className="font-semibold uppercase md:mx-6  no-underline md:text-white ">Restaurants</NavLink>
                                     <NavLink to="/foods" className="font-semibold uppercase md:mx-6 no-underline md:text-white ">All foods</NavLink>
                                     <NavLink to="/orders" className="font-bold uppercase md:mx-6 no-underline md:text-white ">My orders</NavLink>
-                                    {/* <NavLink to="/orders" className="font-bold uppercase md:mx-6 no-underline md:text-white  ">My orders</NavLink> */}
-                                    
+                                    <NavLink to="/orders" className="font-bold uppercase md:mx-6 no-underline md:text-white  ">Admin</NavLink>
+
 
                                 </Nav>
                             </Navbar.Collapse>
@@ -58,6 +59,9 @@ const Header = () => {
                                 <button onClick={handleGoogleLogin} className=" text-sm no-underline text-black uppercase font-bold   bg-yellow-400 px-10 py-3 tracking-widest">
                                     Login
                                 </button>
+                                {/* <NavLink to="/login" className=" text-sm no-underline text-black uppercase font-bold   bg-yellow-400 px-10 py-3 tracking-widest">                                    
+                                    Login
+                                </NavLink> */}
 
                             </div>}
 
@@ -72,6 +76,7 @@ const Header = () => {
                         </div>
                         }
                     </section>
+                   
                 </div>
             </nav>
 
