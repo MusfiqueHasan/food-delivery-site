@@ -1,0 +1,12 @@
+.footer{
+    height: 55vh;
+    background-color:#130f40 ;
+}
+
+@media only screen and (max-width: 680px) {
+    
+    .footer{
+        height: auto;
+        
+    }
+}

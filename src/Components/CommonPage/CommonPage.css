@@ -1,0 +1,10 @@
+.common-banner{
+    height: 60vh;
+    background-image: url('../../images/burger-bg.jpg');
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* linear-gradient(rgba(26, 58, 110, 0.5), rgba(26, 58, 110, 0.5)),  */
