@@ -16,7 +16,7 @@ const AddCatagories = () => {
 
 
     const onSubmit = data => {
-        axios.post('http://localhost:5000/addCategories', data)
+        axios.post('https://pure-citadel-76424.herokuapp.com/addCategories', data)
             .then(res => {
                 reset()
             })

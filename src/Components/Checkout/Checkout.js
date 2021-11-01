@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import CommonPage from '../CommonPage/CommonPage';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
@@ -10,20 +10,23 @@ const Checkout = () => {
     const { user } = useAuth()
     const { itemsId } = useParams()
     const [orderItems, setOrderItems] = useState([]);
+    const history = useHistory()
     const {
         register,
         formState: { errors },
     } = useForm();
     useEffect(() => {
-        axios.get(`http://localhost:5000/addFoodItems/${itemsId}`)
+        axios.get(`https://pure-citadel-76424.herokuapp.com/addFoodItems/${itemsId}`)
             .then((res) => {
                 setOrderItems(res.data)
             });
     }, [])
 
     const handlePlaceOrder = (e) => {
-        axios.put(`http://localhost:5000/myOrders/${itemsId}`, { status: "Processing.." })
+        axios.put(`https://pure-citadel-76424.herokuapp.com/myOrders/${itemsId}`, { status: "Processing.." })
             .then((res) => {
+                alert("order placed successfully")
+                history.push('/myOrders')
             });
         e.preventDefault()
     }
@@ -49,7 +52,7 @@ const Checkout = () => {
                 </div>
                 <div>
                     <div>
-                        <form
+                        <form 
                             className="my-8 md:mx-24 flex flex-col justify-center items-center">
                             <h1 className=" text-center md:w-9/12 border-b-4 border-yellow-400 mb-4 text-2xl font-bold  ">Edit delivery details</h1>
 
@@ -66,7 +69,7 @@ const Checkout = () => {
                                 className="py-2 px-3 mt-1 md:w-9/12 w-10/12 mb-3 font-bold font-mono border-2"
                             />
                             <input
-                                {...register("userAddress", { required: true })}
+                                {...register("address", { required: true })}
                                 placeholder="user address"
                                 className="py-2 px-3 mt-1 md:w-9/12 w-10/12 mb-3 font-bold font-mono border-2"
                             />

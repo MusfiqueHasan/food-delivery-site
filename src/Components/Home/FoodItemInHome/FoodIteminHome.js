@@ -12,7 +12,7 @@ const FoodIteminHome = () => {
     const history = useHistory()
     const handleOrders = (myItems, itemsId) => {
         myItems.userEmail = user?.email
-        axios.post('http://localhost:5000/myOrders', myItems)
+        axios.post('https://pure-citadel-76424.herokuapp.com/myOrders', myItems)
             .then(res => {
                 if (res.data.insertedId) {
                     // alert("added successfully")

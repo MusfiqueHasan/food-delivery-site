@@ -30,7 +30,6 @@ function App() {
             <PrivateRoute path="/foods"><FoodItems /></PrivateRoute>
             <PrivateRoute path="/admin"><Admin /></PrivateRoute>
             <PrivateRoute exact path="/checkout/:itemsId"><Checkout /></PrivateRoute>
-            {/* <PrivateRoute exact path="/checkout"><Checkout /></PrivateRoute> */}
             <PrivateRoute path="/myOrders"><MyOrders /></PrivateRoute>
             <PrivateRoute path="/getCategories/:id"><RestaurantItems /></PrivateRoute>
             <Route path="*"><Error /></Route>

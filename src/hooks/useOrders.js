@@ -5,13 +5,16 @@ const useOrders = () => {
 
     const { user } = useFirebase();
     const [orders, setOrders] = useState([]);
+    const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
-        axios.get(`http://localhost:5000/myOrders/${user?.email}`)
+        setIsLoading(true)
+        axios.get(`https://pure-citadel-76424.herokuapp.com/myOrders/${user?.email}`)
             .then((res) => {
                 setOrders(res.data)
+                setIsLoading(false)
             });
-    }, [user.email])
-    return [orders,setOrders]
+    }, [user.email, setIsLoading])
+    return [orders, setOrders, isLoading, setIsLoading]
 };
 
 export default useOrders;

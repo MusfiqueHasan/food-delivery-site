@@ -33,8 +33,12 @@ const Header = () => {
                                 <NavLink to="/home" ><span className={navbar ? "font-bold uppercase md:mr-6 mr-0 no-underline group md:text-white" : "font-bold uppercase md:mr-6 mr-0 no-underline group md:text-black"}>Home</span></NavLink>
                                 <NavLink to="/restaurant"><span className={navbar ? "font-bold uppercase md:mx-6  no-underline md:text-white " : "font-bold uppercase md:mx-6  no-underline md:text-black "}>Restaurants</span></NavLink>
                                 <NavLink to="/foods" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white " : "font-bold uppercase md:mx-6 no-underline md:text-black "}>All foods</span></NavLink>
-                                <NavLink to="/myOrders" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white " : "font-bold uppercase md:mx-6 no-underline md:text-black "}>My orders</span></NavLink>            
-                                <NavLink to="/admin" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white  " : "font-bold uppercase md:mx-6 no-underline md:text-black  "}>Admin</span></NavLink>
+                                {user.email &&
+                                    <span>
+                                        <NavLink to="/myOrders" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white " : "font-bold uppercase md:mx-6 no-underline md:text-black "}>My orders</span></NavLink>
+                                        <NavLink to="/admin" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white  " : "font-bold uppercase md:mx-6 no-underline md:text-black  "}>Admin</span></NavLink>
+                                    </span>
+                                }
 
 
                             </Nav>
@@ -57,7 +61,7 @@ const Header = () => {
 
                         </div>}
 
-                    {user.displayName && <div>
+                    {user.email && <div>
 
                         <NavLink to="/profile" className=" text-2xl text-black">
                             <div className="flex items-center">

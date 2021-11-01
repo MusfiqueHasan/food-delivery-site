@@ -13,7 +13,7 @@ const AddRestaurant = () => {
     } = useForm();
     const onSubmit = data => {
         data.categories= tags
-        axios.post('http://localhost:5000/addRestaurant', data)
+        axios.post('https://pure-citadel-76424.herokuapp.com/addRestaurant', data)
         .then(res => {
             reset()
         })

@@ -11,7 +11,7 @@ const AddItems = () => {
 
     const onSubmit = data => {
         data.status = ""
-        axios.post('http://localhost:5000/addFoodItems', data)
+        axios.post('https://pure-citadel-76424.herokuapp.com/addFoodItems', data)
             .then(res => {
                 reset()
             })

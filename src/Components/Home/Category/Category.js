@@ -18,7 +18,7 @@ const Category = () => {
     };
     useEffect(() => {
 
-        axios.get('http://localhost:5000/addCategories')
+        axios.get('https://pure-citadel-76424.herokuapp.com/addCategories')
             .then(res => {
                 console.log(res);
                 setCategories(res.data)
@@ -27,7 +27,7 @@ const Category = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/countRestaurant/`)
+        axios.get(`https://pure-citadel-76424.herokuapp.com/countRestaurant/`)
         .then(res => {
             console.log(res);
             setCountRestaurant(res.data)

@@ -5,22 +5,27 @@ import { useHistory } from 'react-router';
 import useFoodItems from '../../hooks/useFoodItems';
 import CommonPage from '../CommonPage/CommonPage';
 import FoodPageOnly from './FoodPageOnly';
+import { Spinner } from 'react-bootstrap';
 
 
 const FoodItems = () => {
     const { user } = useFirebase()
-    const [foodItems] = useFoodItems()
+    const [foodItems,  isLoading, setIsLoading] = useFoodItems()
 
     const history = useHistory()
     const handleOrders = (myItems, itemsId) => {
+        setIsLoading(true)
         myItems.userEmail = user?.email
-        axios.post('http://localhost:5000/myOrders', myItems)
+        axios.post('https://pure-citadel-76424.herokuapp.com/myOrders', myItems)
             .then(res => {
+                setIsLoading(false)
                 if (res.data.insertedId) {
                     history.push(`/checkout/${itemsId}`)
+                    
 
                 } else {
                     alert('product already added ,, go to "MY ORDERS" page')
+                    
                 }
             })
     }
@@ -29,7 +34,9 @@ const FoodItems = () => {
     const [items, setItems] = useState(foodItems)
     useEffect(() => {
         setItems(foodItems)
-    }, [foodItems])
+        
+
+    }, [foodItems, setIsLoading])
 
     const filterMenu = (category) => {
 
@@ -40,48 +47,96 @@ const FoodItems = () => {
         setItems(updatedItems)
     }
     return (
-        <div>
-            <CommonPage>
-                <div className="">
-                    <section className="flex flex-col justify-center items-center pt-24 md:mx-0 mx-4 mb-10 ">
-                        <p className="text-yellow-400 text-xl font-bold uppercase mb-2">SUPER DELICIOUS</p>
-                        <p className="font-bold text-gray-700 font-mono text-xl md:text-5xl">Super Delicious Deal</p>
-                    </section>
+        <CommonPage>
+            {
+                isLoading ? (
+                    <div className="flex justify-center my-7">
+                        <Spinner animation="border" variant="warning" />
+                    </div>
+                ) : (
 
-                    <section className="grid grid-cols-3">
-                        <div className=" ">
-                            <div className=" bg-gray-700 h-screen pt-20 flex justify-center">
-                                <div className="flex flex-col ">
-                                    <button className=" text-yellow-500  uppercase font-bold mb-2"
+                    <div className="">
+                        <section className="flex flex-col justify-center items-center pt-24 md:mx-0 mx-4 mb-10 ">
+                            <p className="text-yellow-400 text-xl font-bold uppercase mb-2">SUPER DELICIOUS</p>
+                            <p className="font-bold text-gray-700 font-mono text-xl md:text-5xl">Super Delicious Deal</p>
+                        </section>
 
-                                        onClick={() => setItems(foodItems)}>all</button>
-                                    <button className=" text-yellow-500 uppercase font-bold mb-2"
+                        <section className="grid grid-cols-3">
+                            <div className=" ">
+                                <div className="w-80 ml-48 py-10 flex flex-col shadow-md border">
+                                    <div className="flex flex-col ">
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2"
 
-                                        onClick={() => filterMenu("Pizza")}>Pizza</button>
-                                    <button className=" text-yellow-500  uppercase font-bold mb-2"
+                                            onClick={() => setItems(foodItems)}>
 
-                                        onClick={() => filterMenu("Pasta")}>Pasta</button>
-                                    <button className=" text-yellow-500  uppercase font-bold mb-2"
+                                            all categories
+                                            <i className="fas fa-chevron-right ml-2"></i>
+                                        </button>
+                                        <button className=" text-yellow-500 uppercase font-bold mb-2"
 
-                                        onClick={() => filterMenu("Burgers")}>Burgers</button>
-                                    <button className=" text-yellow-500  uppercase font-bold mb-2"
+                                            onClick={() => filterMenu("Pizza")}>
+                                            Pizza
+                                            <i className="fas fa-chevron-right ml-2"></i>
+                                        </button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2"
 
-                                        onClick={() => filterMenu("Chicken")}>Chicken</button>
+                                            onClick={() => filterMenu("Pasta")}>
+                                            Pasta
+                                            <i className="fas fa-chevron-right ml-2"></i>
+                                        </button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2"
 
+                                            onClick={() => filterMenu("Burgers")}>
+                                            Burgers
+                                            <i className="fas fa-chevron-right ml-2"></i>
+                                        </button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2"
+
+                                            onClick={() => filterMenu("Chicken")}>
+                                            Chicken
+                                            <i className="fas fa-chevron-right ml-2"></i>
+                                        </button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2"
+
+                                            onClick={() => filterMenu("Sandwiches")}>
+                                            Sandwiches
+                                            <i className="fas fa-chevron-right ml-2"></i>
+                                        </button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2"
+
+                                            onClick={() => filterMenu("Desserts")}>
+                                            Desserts
+                                            <i className="fas fa-chevron-right ml-2"></i>
+                                        </button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2"
+
+                                            onClick={() => filterMenu("Shakes")}>
+                                            Shakes
+                                            <i className="fas fa-chevron-right ml-2"></i>
+                                        </button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2"
+
+                                            onClick={() => filterMenu("Broast")}>
+                                            Broast
+                                            <i className="fas fa-chevron-right ml-2"></i>
+                                        </button>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className=" col-span-2 ml-20">
-                            {
-                                items.map(elm => <FoodPageOnly key={elm._id} elm={elm} handleOrders={handleOrders} />)
-                            }
+                            <div className=" col-span-2 ml-20">
+                                {
+                                    items.map(elm => <FoodPageOnly key={elm._id} elm={elm} handleOrders={handleOrders} />)
+                                }
 
-                        </div>
-                    </section>
-                </div>
+                            </div>
+                        </section>
+                    </div>
 
-            </CommonPage>
-        </div>
+
+                )
+            }
+        </CommonPage>
     );
 };
 
