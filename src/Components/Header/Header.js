@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import img from '../../images/food.png'
-
+// import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 const Header = () => {
     const [navbar, setNavbar] = useState(false)
     const { user, logOut } = useAuth()
+    // const { itemsId } = useParams()
+    // console.log(itemsId);
+
 
 
     const changBackground = () => {
-        window.scrollY >= 50 ? setNavbar(false) : setNavbar(true)
+        window.scrollY >= 100 ? setNavbar(false) : setNavbar(true)
     }
     window.addEventListener('scroll', changBackground)
     return (
@@ -30,7 +33,7 @@ const Header = () => {
                                 <NavLink to="/home" ><span className={navbar ? "font-bold uppercase md:mr-6 mr-0 no-underline group md:text-white" : "font-bold uppercase md:mr-6 mr-0 no-underline group md:text-black"}>Home</span></NavLink>
                                 <NavLink to="/restaurant"><span className={navbar ? "font-bold uppercase md:mx-6  no-underline md:text-white " : "font-bold uppercase md:mx-6  no-underline md:text-black "}>Restaurants</span></NavLink>
                                 <NavLink to="/foods" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white " : "font-bold uppercase md:mx-6 no-underline md:text-black "}>All foods</span></NavLink>
-                                <NavLink to="/myOrders" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white " : "font-bold uppercase md:mx-6 no-underline md:text-black "}>My orders</span></NavLink>
+                                <NavLink to="/myOrders" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white " : "font-bold uppercase md:mx-6 no-underline md:text-black "}>My orders</span></NavLink>            
                                 <NavLink to="/admin" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white  " : "font-bold uppercase md:mx-6 no-underline md:text-black  "}>Admin</span></NavLink>
 
 

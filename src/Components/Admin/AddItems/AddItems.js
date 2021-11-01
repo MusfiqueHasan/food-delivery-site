@@ -10,6 +10,7 @@ const AddItems = () => {
     } = useForm();
 
     const onSubmit = data => {
+        data.status = ""
         axios.post('http://localhost:5000/addFoodItems', data)
             .then(res => {
                 reset()
@@ -39,7 +40,7 @@ const AddItems = () => {
                     className="py-2 px-3 mt-1 md:w-9/12 w-10/12  border-2"
                 />
                 <select {...register("categories")} className="py-2 px-3 mt-1 md:w-9/12 w-10/12  border-2">
-                    <option value="female">Pizza</option>
+                    <option value="Pizza">Pizza</option>
                     <option value="Sandwiches">Sandwiches</option>
                     <option value="Burgers">Burgers</option>
                     <option value="Broast">Broast</option>
@@ -48,7 +49,7 @@ const AddItems = () => {
                     <option value="Shakes">Shakes</option>
                     <option value="Pasta">Pasta</option>
                 </select>
-               
+
                 <textarea
                     {...register("description", { required: true })}
                     placeholder="food description"
@@ -58,7 +59,7 @@ const AddItems = () => {
                 {errors.exampleRequired && <span>This field is required</span>}
                 <button className="py-2 px-10 mt-5 bg-yellow-400 text-white font-semibold rounded-full"
                     type="submit">
-                    Add Restaurant
+                    Add Menu
                 </button>
 
             </form>

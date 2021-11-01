@@ -1,19 +1,19 @@
 import React from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-const AllRestaurant = ({ elm }) => {
+const AllRestaurant = ({ elm, handleRestaurantItem }) => {
 
-    const { image, name, categories, logo, address, time } = elm
+    const {_id, image, name, categories, logo, address, time } = elm
+
     return (
         <div>
-            <Card style={{ height: '500px' }} className="shadow-md md:w-96 w-80">
+            <Card style={{ height: '500px' }} className="shadow-md md:w-96 w-80 cursor-pointer" onClick={()=>handleRestaurantItem(_id)}>
                 <div className="h-3/6">
                     <img src={image} alt="" className="h-full w-full" />
                 </div>
                 <Card.Body>
                     <Card.Title className=" text-2xl font-mono font-bold">{name}</Card.Title>
-                    <Card.Text className="">
-
+                    <Card.Text className=""> 
                         {
                             categories.map(cate => {
                                 return (
@@ -21,6 +21,7 @@ const AllRestaurant = ({ elm }) => {
                                 )
                             })
                         }
+            
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">

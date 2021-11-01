@@ -11,6 +11,7 @@ import Footer from "./Components/Footer/Footer";
 import Error from "./Components/PageNotFound/Error";
 import Checkout from "./Components/Checkout/Checkout";
 import MyOrders from "./Components/MyOrders/MyOrders";
+import RestaurantItems from "./Components/RestaurantItems/RestaurantItems";
 
 
 function App() {
@@ -28,8 +29,10 @@ function App() {
             <PrivateRoute path="/restaurant"><Restaurent /></PrivateRoute>
             <PrivateRoute path="/foods"><FoodItems /></PrivateRoute>
             <PrivateRoute path="/admin"><Admin /></PrivateRoute>
-            <PrivateRoute path="/checkout/:itemsId"><Checkout /></PrivateRoute>
+            <PrivateRoute exact path="/checkout/:itemsId"><Checkout /></PrivateRoute>
+            {/* <PrivateRoute exact path="/checkout"><Checkout /></PrivateRoute> */}
             <PrivateRoute path="/myOrders"><MyOrders /></PrivateRoute>
+            <PrivateRoute path="/getCategories/:id"><RestaurantItems /></PrivateRoute>
             <Route path="*"><Error /></Route>
 
           </Switch>

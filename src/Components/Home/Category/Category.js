@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
-import useRestaurant from '../../../hooks/useRestaurant';
+
 
 const Category = () => {
-    const [restaurant] = useRestaurant()
+    
+    const [ setCountRestaurant] = useState([])
     const [categories, setCategories] = useState([])
     var settings = {
-        // dots: true,
+        
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -24,6 +25,15 @@ const Category = () => {
             })
     }, [])
 
+
+    useEffect(() => {
+        axios.get(`http://localhost:5000/countRestaurant/`)
+        .then(res => {
+            console.log(res);
+            setCountRestaurant(res.data)
+        })
+
+    }, [])
     return (
         <div className=" md:h-screen md:px-24 ">
             <div>
@@ -35,12 +45,12 @@ const Category = () => {
 
                     {
                         categories.map(elem => {
-                           
+
                             return (
-                                <div className=" outline-none">
+                                <div className=" outline-none " >
                                     <img src={elem.image} alt="" className="mx-auto my-6 md:w-72 md:h-48" />
                                     <h4 className=" text-2xl text-center font-bold font-mono">{elem.name}</h4>
-                                    <p className="text-center">14 restaurant</p>
+                                    
                                 </div>
 
                             )

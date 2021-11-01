@@ -22,10 +22,10 @@ const Admin = () => {
                             <div className=" grid grid-cols-4">
                                 <div className=" bg-gray-700 h-screen pt-20 flex justify-center">
                                     <div className="flex flex-col ">
-                                        <button className=" text-white uppercase font-bold mb-2" onClick={() => setControl("manageOrders")}>Manage All Orders</button>
-                                        <button className=" text-white uppercase font-bold mb-2" onClick={() => setControl("addItems")}>Add A New Item</button>
-                                        <button className=" text-white uppercase font-bold mb-2" onClick={() => setControl("addCatagories")}>Add A New Catagories</button>
-                                        <button className=" text-white uppercase font-bold mb-2" onClick={() => setControl("addRestaurant")}>Add A New Restaurant</button>
+                                        <button className=" text-yellow-500 uppercase font-bold mb-2" onClick={() => setControl("manageOrders")}>Manage All Orders</button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("addItems")}>Add A New Item</button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("addCatagories")}>Add A New Catagories</button>
+                                        <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("addRestaurant")}>Add A New Restaurant</button>
                                     </div>
                                 </div>
                                 <div className=" col-span-3">
