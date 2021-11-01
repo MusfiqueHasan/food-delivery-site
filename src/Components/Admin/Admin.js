@@ -20,8 +20,8 @@ const Admin = () => {
                     : <CommonPage>
                         <div>
                             <div className=" grid md:grid-cols-4">
-                                <div className=" bg-gray-700 md:h-screen pt-20 flex md:justify-center">
-                                    <div className="flex flex-col  ">
+                                <div className=" bg-gray-700 md:h-screen py-10 flex justify-center ">
+                                    <div className="flex flex-col   ">
                                         <button className=" text-yellow-500 uppercase font-bold mb-2" onClick={() => setControl("manageOrders")}>Manage All Orders</button>
                                         <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("addItems")}>Add A New Item</button>
                                         <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("addCatagories")}>Add A New Catagories</button>

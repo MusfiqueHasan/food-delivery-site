@@ -20,8 +20,8 @@ const Header = () => {
                     </NavLink>
                 </div>
                 <div className="flex md:flex-row flex-col-reverse ">
-                    <Navbar collapseOnSelect expand="lg" className=" ">
-                        <Container>
+                    <Navbar collapseOnSelect expand="lg" >
+                        <Container >
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav" >
                                 <Nav  >
@@ -50,7 +50,7 @@ const Header = () => {
                             :
                             <div className="flex items-center">
 
-                                <NavLink to="/login" className=" text-sm no-underline text-black uppercase font-bold   bg-yellow-400 px-10 py-3 tracking-widest">
+                                <NavLink to="/login" className=" text-sm no-underline text-black uppercase font-bold   bg-yellow-400 px-6 py-2 tracking-widest mt-2 md:mt-0">
                                     Login
                                 </NavLink>
 

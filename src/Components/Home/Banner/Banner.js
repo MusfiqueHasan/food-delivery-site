@@ -12,8 +12,8 @@ const Banner = () => {
             <div className=" md:h-screen h-full grid md:grid-cols-3 grid-cols-1 md:px-28">
                 <div className=" md:h-screen  px-5 flex flex-col justify-center md:break-normal break-all col-span-2">
                     <h1 className=" md:text-6xl text-xl text-white font-bold md:mb-6 mb-2  font-serif w-72 md:w-full">Order Healthy And Fresh Food Any Time</h1>
-                    <p className="text-white md:text-xl text-xs text-justify w-60 md:w-5/6 ">Italian food makes people think of big family dinners. So you may want to position your restaurant as a place to bring the whole family.</p>
-                    <h4 className="text-white md:text-2xl md:my-6 my-2 border-b-2 md:w-56 w-60 font-mono font-bold ">Popular Restaurant</h4>
+                    <p className="text-white md:text-xl md:my-3 text-xs text-justify w-60 md:w-5/6 ">Italian food makes people think of big family dinners. So you may want to position your restaurant as a place to bring the whole family.</p>
+                    <h4 className="text-white md:text-2xl md:my-6 my-2 border-b-2 w-60 font-mono font-bold ">Popular Restaurant</h4>
                     <div className=" md:w-4/6 w-1/5 flex justify-between">
                         <img src={img1} alt="" className="md:w-20 w-10" />
                         <img src={img2} alt="" className="md:w-20 w-10" />
