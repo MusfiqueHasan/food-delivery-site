@@ -35,9 +35,9 @@ const Category = () => {
 
     }, [])
     return (
-        <div className=" md:h-screen md:px-24 ">
+        <div className=" md:mb-40 mb-10 md:px-24 ">
             <div>
-                <section className="flex flex-col justify-center items-center pt-24 md:mx-0 mx-4 mb-10 ">
+                <section className="flex flex-col justify-center items-center md:pt-24 pt-8 md:mx-0 mx-4 md:mb-10 ">
                     <p className="text-yellow-400 text-xl font-bold uppercase mb-2">top foods</p>
                     <p className="font-bold text-gray-700 font-mono text-xl md:text-5xl">Our Categories</p>
                 </section>
@@ -48,8 +48,8 @@ const Category = () => {
 
                             return (
                                 <div className=" outline-none " >
-                                    <img src={elem.image} alt="" className="mx-auto my-6 md:w-72 md:h-48" />
-                                    <h4 className=" text-2xl text-center font-bold font-mono">{elem.name}</h4>
+                                    <img src={elem.image} alt="" className="mx-auto my-6 md:w-72 w-14 h-12 md:h-48" />
+                                    <h4 className=" md:text-2xl text-xs text-center font-bold font-mono">{elem.name}</h4>
                                     
                                 </div>
 

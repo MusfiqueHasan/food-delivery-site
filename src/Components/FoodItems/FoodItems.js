@@ -61,10 +61,10 @@ const FoodItems = () => {
                             <p className="font-bold text-gray-700 font-mono text-xl md:text-5xl">Super Delicious Deal</p>
                         </section>
 
-                        <section className="grid grid-cols-3">
+                        <section className="grid md:grid-cols-3">
                             <div className=" ">
-                                <div className="w-80 ml-48 py-10 flex flex-col shadow-md border">
-                                    <div className="flex flex-col ">
+                                <div className="md:w-80 md:ml-48 py-10 flex flex-col shadow-md border">
+                                    <div className="flex md:flex-col flex-wrap justify-center">
                                         <button className=" text-yellow-500  uppercase font-bold mb-2"
 
                                             onClick={() => setItems(foodItems)}>
@@ -124,7 +124,7 @@ const FoodItems = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className=" col-span-2 ml-20">
+                            <div className=" md:col-span-2 md:ml-20 md:mx-0 mx-8 md:mt-0 mt-8">
                                 {
                                     items.map(elm => <FoodPageOnly key={elm._id} elm={elm} handleOrders={handleOrders} />)
                                 }

@@ -9,9 +9,9 @@ const FoodPageOnly = ({ elm, handleOrders }) => {
         <div >
 
 
-            <div className=" w-3/4 flex items-center justify-between mb-3 shadow-md border p-3">
-                <div className="flex">
-                    <img src={image} alt="" className=" w-24 h-24 mr-10" />
+            <div className=" md:w-3/4 flex items-center flex-col md:flex-row  justify-between mb-3 shadow-md border p-3">
+                <div className="flex flex-col md:flex-row ">
+                    <img src={image} alt="" className=" md:w-24 md:h-24 md:mr-10  " />
                     <div>
                         <h1 className="text-xl font-mono font-bold">{title} <span className="text-sm">({categories})</span></h1>
                         <p className=" mb-1">{description}</p>

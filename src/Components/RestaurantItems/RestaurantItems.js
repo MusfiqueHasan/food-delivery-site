@@ -56,17 +56,19 @@ const RestaurantItems = () => {
                 ) : (
                     <CommonPage>
                         <section className=" h-40 flex justify-center items-center mb-20 border-b-2  bg-gray-50">
-                            <div className="md:w-28 w-10 mr-10">
+                            <div className="md:w-28 w-20 md:mr-10">
                                 <img src={getSelectedRestaurantInfo[0]?.logo} alt="" className="w-full rounded-t-full" />
                             </div>
-                            <div >
+                            <div className="md:ml-0 ml-4 ">
                                 <div className="font-bold text-black text-xl md:text-4xl my-3">
                                     {getSelectedRestaurantInfo[0]?.name}
                                 </div>
-                                <div className="flex items-center ">
+                                <div className="flex items-center flex-col md:flex-row ">
+                                    <span className="flex items-center justify-between">
                                     <MdLocationOn className=" text-yellow-400 font-extrabold" />
                                     {getSelectedRestaurantInfo[0]?.address}
-                                    <span className="ml-4 flex items-center justify-between">
+                                    </span>
+                                    <span className="md:ml-4 flex items-center justify-between">
                                         <BiTimeFive className=" text-yellow-400 font-extrabold" />
                                         {getSelectedRestaurantInfo[0]?.time} </span>
                                 </div>
@@ -75,14 +77,14 @@ const RestaurantItems = () => {
 
                         </section>
 
-                        <section className="grid grid-cols-3 ">
+                        <section className="grid md:grid-cols-3 ">
                             <div>
-                                <div className="w-80 ml-48 py-10 flex flex-col justify-center items-center shadow-md border">
+                                <div className="md:w-80 w-72 md:ml-48 ml-10  md:py-10 py-4 flex flex-col justify-center items-center shadow-md border">
                                     <div >
                                         <h1 className="text-2xl font-bold mb-3 uppercase">All details</h1>
                                     </div>
-                                    <div className="flex flex-col ">
-                                        <button className=" text-yellow-500 flex items-center  uppercase font-bold mb-2" onClick={() => setControl("menus")}>
+                                    <div className="flex md:flex-col  ">
+                                        <button className=" text-yellow-500 flex items-center mr-4 md:mr-0 uppercase font-bold mb-2" onClick={() => setControl("menus")}>
                                             <BiFoodMenu className="mr-2" />
                                             Menus
                                         </button>
@@ -95,7 +97,7 @@ const RestaurantItems = () => {
                                 </div>
 
                             </div>
-                            <div className=" col-span-2 ml-20">
+                            <div className=" md:col-span-2 md:ml-20 mx-8">
                                 {
                                     control === "menus" && <div>
                                         {

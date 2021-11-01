@@ -7,4 +7,12 @@
     background-attachment: fixed;
 }
 
-/* linear-gradient(rgba(26, 58, 110, 0.5), rgba(26, 58, 110, 0.5)),  */
+@media only screen and (max-width:680px){
+    .common-banner{
+        
+        background-position: right;
+        background-size: contain;
+        background-attachment:local;
+        
+    }
+}

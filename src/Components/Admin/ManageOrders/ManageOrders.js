@@ -58,27 +58,29 @@ const ManageOrders = () => {
                     <div>
 
                         <section className="flex flex-col justify-center items-center pt-24 md:mx-0 mx-4 mb-10 ">
-                            {/* <p className="text-yellow-400 text-xl font-bold uppercase mb-2">SUPER DELICIOUS</p> */}
+                        
                             <p className="font-extrabold text-gray-700 border-b-4 border-yellow-500 text-xl md:text-5xl">Manage All Orders</p>
                         </section>
                         <section className="flex justify-center">
-                            <div className="w-8/12">
+                            <div className="md:w-8/12 mx-10">
 
                                 {
                                     orders.map(order => {
                                         const { _id, title, image, price, categories, userEmail, status } = order
                                         return (
                                             <div >
-                                                <div className="  flex items-center justify-between mb-3 shadow-md border p-3">
-                                                    <div className="flex">
-                                                        <img src={image} alt="" className=" w-24 h-24 mr-10" />
-                                                        <div>
+                                                <div className="  flex flex-col md:flex-row items-center justify-between mb-3 shadow-md border p-3">
+                                                    <div className="flex flex-col md:flex-row">
+                                                        <div className="md:mx-0 mx-auto">
+                                                        <img src={image} alt="" className=" md:w-24 md:h-24 md:mr-10 w-40" />
+                                                        </div>
+                                                        <div className="mt-3 mx-mt-0">
                                                             <h1 className="text-xl font-mono font-bold">{title} <span className="font-normal font-mono"> ({categories})</span> </h1>
                                                             <p className="text-yellow-600 font-bold mb-2">{price}</p>
                                                             <p className="font-bold mb-1">user-email:<span className="font-normal font-mono"> {userEmail}</span></p>
                                                         </div>
                                                     </div>
-                                                    <div className="flex items-center">
+                                                    <div className="flex items-center mt-3 md:mt-0">
                                                         <button
                                                             onClick={() => handleApproval(_id)}
                                                             className={

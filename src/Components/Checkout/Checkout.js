@@ -37,12 +37,12 @@ const Checkout = () => {
             <section className="flex flex-col justify-center items-center pt-24 md:mx-0 mx-4 mb-20 ">
                 <p className="font-bold text-gray-700 font-mono text-xl md:text-5xl border-b-4 border-yellow-400">Checkout</p>
             </section>
-            <section className="grid grid-cols-2">
+            <section className="grid md:grid-cols-2">
                 <div className="flex flex-col items-end">
-                    <div className="w-2/4 mx-auto">
+                    <div className="w-3/5 mx-auto">
                         <img src={image} alt="" className="w-full" />
                     </div>
-                    <div className="w-3/4">
+                    <div className="md:w-3/4  mx-10 md:mx-0">
                         <p className=" text-2xl font-extrabold text-center my-4">{title}</p>
 
                         <p className="mb-2 font-mono"> <span className="font-bold text-black ">Categories: </span> {categories}</p>
